@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.acrunetit.college.appconstants.CollegeManagementAppConstants;
 import com.acrunetit.college.entity.Branch;
 import com.acrunetit.college.globalexceptionhandle.BranchNotFoundException;
 import com.acrunetit.college.repository.BranchRepository;
@@ -41,7 +42,7 @@ public class BranchServiceImpl implements BranchService {
 			return findById.get();
 		} else {
 			logger.error("Branch Not Found With ID: {}", branchId);
-			throw new BranchNotFoundException("Branch Not Found :" + branchId);
+			throw new BranchNotFoundException(CollegeManagementAppConstants.BRANCH_NOT_FOUND + branchId);
 		}
 	}
 

@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.acrunetit.college.appconstants.CollegeManagementAppConstants;
 import com.acrunetit.college.entity.Branch;
 import com.acrunetit.college.entity.College;
 import com.acrunetit.college.globalexceptionhandle.CollegeNotFoundException;
@@ -124,7 +125,7 @@ class CollegeServiceImplTest {
 		CollegeNotFoundException assertThrows2 = assertThrows(CollegeNotFoundException.class,
 				() -> collegeServiceImpl.getCollegeById(1));
 
-		assertEquals("College Id Not Found :"+1, assertThrows2.getMessage());
+		assertEquals(CollegeManagementAppConstants.COLLEGE_NOT_FOUND + 1, assertThrows2.getMessage());
 	}
 
 }
