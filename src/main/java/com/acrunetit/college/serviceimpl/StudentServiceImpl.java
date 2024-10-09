@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.acrunetit.college.appconstants.CollegeManagementAppConstants;
 import com.acrunetit.college.entity.Students;
 import com.acrunetit.college.globalexceptionhandle.StudentNotFoundException;
 import com.acrunetit.college.repository.StudentRepository;
@@ -33,7 +34,7 @@ public class StudentServiceImpl implements StudentService {
 		} else {
 			logger.error("Student Not Found With ID: {}", studentId);
 
-			throw new StudentNotFoundException("Student Not Found: " + studentId);
+			throw new StudentNotFoundException(CollegeManagementAppConstants.STUDENT_NOT_FOUND + studentId);
 		}
 	}
 
